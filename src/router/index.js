@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Route,
     Link,
-    Switch
+    Switch,
+    Redirect
 } from 'react-router-dom';
 import Balance from 'pages/balance';  
 import Helpcenter from 'pages/helpcenter'; 
@@ -12,13 +13,14 @@ import Production from 'pages/production';
 import Record from 'pages/record'; 
 export default class App extends Component{
     render(){
-        return <Router>
+        return <Router >
             <Switch>
                 <Route path="/record" component={Record}></Route>
                 <Route path="/balance" component={Balance}></Route>
                 <Route path="/helpcenter" component={Helpcenter}></Route>
                 <Route path="/production" component={Production}></Route>
                 <Route path="/"  exact component={Home}></Route>
+                <Redirect to="/"></Redirect>
             </Switch>
         </Router>
     }

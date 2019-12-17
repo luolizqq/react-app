@@ -1,4 +1,4 @@
-export default function(state={direction:""},action){
+export default function(state={direction:"no"},action){
     switch(action.type) {
         case "left":
             return {direction:"left"};

@@ -1,5 +1,9 @@
 import React,{Component} from "react";
-export default class extends  Component{
+import {connect} from "react-redux";
+import PublicHeader from "components/publicHeader";
+
+@connect(({home})=>({home}))
+class Home extends  Component{
     constructor(props){
         super(props);
         this.state={
@@ -7,12 +11,15 @@ export default class extends  Component{
         }
     }
     componentDidMount(){
-
+        setTimeout(()=>{
+            this.props.dispatch({type:"left"})
+        },3000)
     }
-
+    
     render(){
         return <div>
-            home
+            <PublicHeader title="首页"></PublicHeader>
         </div>  
     }
 }
+export default Home

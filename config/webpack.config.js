@@ -24,7 +24,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
+const px2rem = require("postcss-plugin-px2rem")
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
@@ -112,6 +112,7 @@ module.exports = function(webpackEnv) {
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
+            px2rem({remUnit:75})
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
@@ -302,7 +303,9 @@ module.exports = function(webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
-        'pages': __dirname + '/../src/pages'
+        'pages': __dirname + '/../src/pages',
+        'components': __dirname + '/../src/components',
+        'utils': __dirname + '/../src/utils',
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
