@@ -1737,11 +1737,6 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-ant-mobile@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/ant-mobile/-/ant-mobile-0.0.0.tgz#3984d9f8803755e13c20489e0d1441b48a3f6d65"
-  integrity sha1-OYTZ+IA3VeE8IEieDRRBtIo/bWU=
-
 antd-mobile@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/antd-mobile/-/antd-mobile-2.3.1.tgz#04d8709c198eee27c3c41b903cb2ad77a16028e3"

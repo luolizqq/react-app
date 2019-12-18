@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import setRem from  "./utils/rem";
 import 'antd-mobile/dist/antd-mobile.css';  
 import './styles/iconfont/iconfont.css'
+import "styles/reset.css";
 var FastClick = require('fastclick');
 FastClick.attach(document.body);
 setRem();

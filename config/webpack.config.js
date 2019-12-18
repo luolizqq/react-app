@@ -49,6 +49,8 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const lessRegex = /\.less$/;  // 新增less配置
 const lessModuleRegex = /\.module\.less$/; // 新增less配置，这个其实不配置也行
+const mergePath = function(url){return path.resolve(__dirname,'..',url)}
+console.log("路径",mergePath("src/pages/styles"))
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
@@ -303,9 +305,10 @@ module.exports = function(webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
-        'pages': __dirname + '/../src/pages',
-        'components': __dirname + '/../src/components',
-        'utils': __dirname + '/../src/utils',
+        'pages': mergePath("src/pages"),
+        'components':mergePath("src/components"),
+        'utils': mergePath("src/utils"),
+        'styles':mergePath("src/styles"),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

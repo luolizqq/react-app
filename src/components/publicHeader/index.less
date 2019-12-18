@@ -1,8 +1,20 @@
+
+@import "~styles/mixins.less";
 .header{
     .title{
-         height:88px;
+        height:88px;
         background:#975ec9;
-   
+    }
+    .list{
+        padding:0 30px;
+        a{
+            font:40px/113px  "iconfont";
+            display: flex;
+            justify-content: space-between;
+            padding:0 10px;
+            color:#333;
+            border-bottom:1px solid #ddd;
+        }
     }
     :global{
         .am-drawer-sidebar{
@@ -14,14 +26,19 @@
         .am-navbar-title{
             font-size:52px;
         }
-       
+       .am-drawer-sidebar{
+           width:100%;
+       }
+    //    .am-drawer-left{
+    //        background-color: transparent;
+    //    }
     }
 }
 .drawer {
     position: relative;
     margin-top:88px;
     overflow: auto;
-    background:#fff;
+    background:#fff!important;
     -webkit-overflow-scrolling: touch;
   }
   .my-drawer .am-drawer-sidebar {

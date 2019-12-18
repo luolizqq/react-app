@@ -4,6 +4,8 @@ import { Drawer} from 'antd-mobile';
 import styles from "./index.less";
 import {NavBar} from 'antd-mobile';
 import {withRouter} from "react-router-dom";
+import classNames from "classnames";
+import {Link} from "react-router-dom"
 @withRouter
 class PublicHeader extends  Component{
     constructor(props){
@@ -23,11 +25,20 @@ class PublicHeader extends  Component{
     }
     render(){
         const sidebar =(
-            <ul>
-                <li>首页</li>
-                <li>提现</li>
-                <li>帮助中心</li>
-            </ul>  
+            <div className={styles.list}>
+                <Link to="/">
+                    <span>首页</span>
+                    <span class="iconfont icon-icon1"></span>
+                </Link>
+                <Link to="/balance">
+                    <span>提现</span>
+                    <span class="iconfont icon-icon1"></span>
+                </Link>
+                <Link to="/helpcenter">
+                    <span>帮助中心</span>
+                    <span class="iconfont icon-icon1"></span>
+                </Link>
+            </div>  
         )
         return <div className={styles.header}>
             <NavBar 
@@ -40,11 +51,12 @@ class PublicHeader extends  Component{
            <Drawer
         className={styles.drawer}
         // style={{ height: document.documentElement.clientHeight }}
-        contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42}}
+        // contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42}}
         sidebar={sidebar}
         open={this.state.open}
         onOpenChange={this.onOpenChange}
       >
+          {this.props.children}
       </Drawer>
         </div>  
     }
