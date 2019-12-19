@@ -1,13 +1,44 @@
+@import "~styles/mixins.less";
 .head{
     h2{
-        font:48px/107px Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+        font:40px/107px Helvetica Neue, Helvetica, STHeiTi, sans-serif;
         color:#975ec9;
         padding :0 20px;
     }
     .form{
-        input{
-            display: inline;
-            width:30px;
+        .formItem{
+            background-color: #fff;
+            border-bottom:1px solid #ddd;
+            height:120px;
+            box-sizing: border-box;
+            span{
+                color:#555;
+                margin:0 30px;
+                vertical-align: middle;
+                .lh(119px,30px);
+            }
+            input{
+                .lh(119px,30px);
+            }
         }
+    }
+    .selectProd{
+        background:#fff;
+        display: block;
+        .emptyPro{
+            .lh(120px,40px);
+            text-align: center;
+            color:#ccc;
+        }
+        
+    }
+    button{
+        .wh(675px,99px);
+        .lh(99px,40px);
+        color:#fff;
+        background-color: #975ec9;
+        border-radius:10px;
+        display: block;
+        margin: 60px auto 0;
     }
 }

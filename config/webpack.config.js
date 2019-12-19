@@ -24,7 +24,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const px2rem = require("postcss-plugin-px2rem")
+const px2rem = require("postcss-px2rem")
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
@@ -115,6 +115,7 @@ module.exports = function(webpackEnv) {
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
             px2rem({remUnit:75})
+            // px2rem({rootValue:75})
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
@@ -133,8 +134,9 @@ module.exports = function(webpackEnv) {
           options: {
             sourceMap: true,
           },
-        }
-      );
+        },
+        
+      )
     }
     return loaders;
   };
@@ -309,6 +311,8 @@ module.exports = function(webpackEnv) {
         'components':mergePath("src/components"),
         'utils': mergePath("src/utils"),
         'styles':mergePath("src/styles"),
+        "store":mergePath("src/store"),
+        'api':mergePath("src/api")
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

@@ -1,6 +1,10 @@
-export default function(state={a:1,b:2},action){
+import * as types from "./action-type";
+const defaultState={
+  productList:[]
+}
+export const productData = (state=defaultState,action={})=>{
     switch(action.type) {
-        case "add":return {...state,a:state.a++} ;
+        case types.SAVEPRODUCTLIST:return {...state,...{productList:action.productList}} ;
         case "minus":return {...state,b:state.b--} ;
         default:
       return state;
